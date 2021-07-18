@@ -18,6 +18,7 @@ A Nuxt app has a fixed directory structure. _pages_, _layouts_ etc. are director
 ## Concepts:
 
 - **SSR** (server-side rendering):
+
   - needs node server
   - page is fully rendered on server and sent to browser. On the client-side, the browser uses the JS bundle to _hydrate_ i.e. it takes the static html sent by the server and turns it into a dynamic DOM that can react to client-side data changes. `data-server-rendered` attribute is added
   - the client sends initial request. This hits the node server which returns HTML with results from executed functions, e.g. `asyncData`, `nuxtServerInit` or `fetch`. Hooks functions are executed as well
@@ -33,4 +34,4 @@ A Nuxt app has a fixed directory structure. _pages_, _layouts_ etc. are director
   - the client then starts _hydrating_ the page and makes it reactive (like SSR)
   - in-app navigation using `<NuxtLink` is done client side, just like in SSR
   - pages excluded from generation using `generate.exclude` will not exist on CDN and will be fully client-side rendered
-  - when there's new data available from API, the site will need to be regenerated 
+  - when there's new data available from API, the site will need to be regenerated
