@@ -28,6 +28,12 @@
   },
   "homepage": "https://github.com/ags1773/nuxt-poc#readme",
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
     "nuxt": "^2.15.7"
+  },
+  "devDependencies": {
+    "fibers": "^5.0.0",
+    "sass": "^1.35.2",
+    "sass-loader": "^10.2.0"
   }
 }

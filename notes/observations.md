@@ -1,0 +1,4 @@
+- `nuxt.config.js` is where the entire app config resides. Even config for additional modules is done here
+- all components/layouts etc need to be inside `<template></template>`
+- put static assets (images) in `static` dir
+- do not use latest sass-loader. Use v10 otherwise nuxt cli complains
