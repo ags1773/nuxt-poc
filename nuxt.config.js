@@ -4,5 +4,5 @@ export default {
   components: true, // auto import components
   http: {
     baseURL: "https://www.mumbaitak.in",
-  },
+  }
 };
