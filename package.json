@@ -29,6 +29,7 @@
   "homepage": "https://github.com/ags1773/nuxt-poc#readme",
   "dependencies": {
     "@nuxt/http": "^0.6.4",
+    "@nuxtjs/proxy": "^2.1.0",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {

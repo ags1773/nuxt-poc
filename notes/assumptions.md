@@ -1,0 +1,2 @@
+- story pages will have structure `https://example.com/story/:storySlug`
+- otherwise it's either a static page or a section/subsection page `https://example.com/:section-slug`

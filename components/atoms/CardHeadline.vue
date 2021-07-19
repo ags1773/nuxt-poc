@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1>{{ collection.name }}</h1>
+    {{ headline }}
   </div>
 </template>
 
 <script>
 export default {
-  props: ["collection"],
+  props: ["headline"],
 };
 </script>

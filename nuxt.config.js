@@ -1,8 +1,13 @@
 export default {
-  modules: ["@nuxt/http"],
+  modules: ["@nuxt/http", '@nuxtjs/proxy'],
   target: "server", // 'server' (default) or 'static'
-  components: true, // auto import components
+  components: [
+    { path: "~/components" },
+    { path: "~/components/atoms" },
+    { path: "~/components/molecules" },
+  ],
   http: {
     baseURL: "https://www.mumbaitak.in",
+    proxy: true
   }
 };
