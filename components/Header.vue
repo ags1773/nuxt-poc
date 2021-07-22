@@ -2,7 +2,7 @@
   <header class="header">
     <div class="publisher-logo">
       <NuxtLink to="/">
-        <img class="logo-image" src="/nuxt-icon.png" alt="nuxt icon" />
+        <img class="logo-image" :src="logoSrc" alt="publisher logo" />
       </NuxtLink>
     </div>
     <div class="social-links">
@@ -14,6 +14,19 @@
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  computed: {
+    logoSrc: function() {
+      return _get(this.$store.state.config, [
+        "theme-attributes",
+        "primary_logo",
+      ]);
+    },
+  },
+};
+</script>
 
 <style scoped lang="scss">
 .header {

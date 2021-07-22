@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Home Page</h1>
     <FourColGrid
       v-for="collection in homeCollectionData"
       v-bind:key="collection.id"
