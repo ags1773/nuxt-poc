@@ -13,3 +13,4 @@ Tasks:
 - [ ] use [dayjs](https://www.npmjs.com/package/dayjs) for dateTime
 - [ ] remove lodash get
 - [ ] deploy on vercel
+- [ ] add bundle analyzer
