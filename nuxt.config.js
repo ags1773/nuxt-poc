@@ -11,9 +11,6 @@ export default {
     { path: "~/components/molecules" },
   ],
   http: {
-    // prefix: sketchesHost,
-    // baseURL: sketchesHost,
-    // browserBaseURL: sketchesHost, // FE shouldn't call sketches directly, it should call through backend
     proxy: true,
   },
   proxy: [`${sketchesHost}/api/v1/**/*`], // proxies /api/v1 requests to sketches
@@ -29,7 +26,7 @@ export default {
       }),
     ],
   },
-  plugins: ["~/plugins/http"],
+  plugins: ["~/plugins/client.js"],
   server: {
     port: process.env.PORT || 3000,
   },

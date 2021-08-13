@@ -1,26 +1,26 @@
 <template>
   <div>
     <div>Home Page</div>
-    <!--
     <FourColGrid
-      v-for="collection in homeCollectionItems"
+      v-for="collection in collectionItems"
       :key="collection.id"
       :collectionSlug="collection.slug"
     />
-    -->
   </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ store }) {
-    await store.dispatch("FETCH_CONFIG");
+  async asyncData({ store, $http, $client }) {
+    // await store.dispatch("FETCH_CONFIG");
+    const collectionData = await $client.getCollectionBySlug("home", {
+      qs: {
+        "item-type": "collection",
+      },
+    });
+    const collectionItems = collectionData.items;
+    return { collectionItems };
 
-    // const homeCollection = await $http.$get("/api/v1/collections/home");
-    // const homeCollectionItems = homeCollection.items
-    //   .filter((item) => item.type === "collection")
-    //   .slice(0, 1);
-    // return { homeCollectionItems };
     // const homeCollectionPromises = homePageCollections.items
     //   .filter((collItems) => collItems.type === "collection")
     //   .map((collItems) => collItems.slug)

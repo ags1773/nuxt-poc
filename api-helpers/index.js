@@ -1,1 +1,0 @@
-// export { getCollectionBySlug } from "./sketches";
