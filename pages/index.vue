@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>Hello World</div>
-    <!--
+    <div>Home Page</div>
     <div>Config: {{ this.$store.state.config }}</div>
+    <!--
     <FourColGrid
       v-for="collection in homeCollectionItems"
       :key="collection.id"
@@ -12,11 +12,12 @@
   </div>
 </template>
 
-<!-- 
 <script>
 export default {
   async asyncData({ $http, store }) {
-    await store.dispatch("FETCH_CONFIG");
+    const config = await $http.$get("/api/v1/config");
+    await store.dispatch("SET_CONFIG", config);
+
     // const homeCollection = await $http.$get("/api/v1/collections/home");
     // const homeCollectionItems = homeCollection.items
     //   .filter((item) => item.type === "collection")
@@ -31,4 +32,3 @@ export default {
   },
 };
 </script>
--->

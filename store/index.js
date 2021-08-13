@@ -9,10 +9,8 @@ export const mutations = {
 };
 
 export const actions = {
-  async FETCH_CONFIG({ commit }) {
-    // const config = await this.$http.$get("/api");
-    const config = "dummy config"
-    commit("setConfig", config);
+  async SET_CONFIG(context, config) {
+    context.commit("setConfig", config)
   },
   // async nuxtServerInit({ dispatch }, { req }) {
   //   console.log("**** req >> ", req);
