@@ -1,21 +1,21 @@
 <template>
   <div class="card-image-wrapper">
-    <img class="card-image" :src="imageSlug" :alt="alt" />
+    <!-- <img class="card-image" :src="imageSlug" :alt="alt" /> -->
   </div>
 </template>
 
 <script>
 export default {
   props: ["slug", "alt"],
-  computed: {
-    imageSlug: function() {
-      const cdn = this.$store.state.config["cdn-name"];
-      const qs = "?w=300&dpr=2.0";
-      return cdn.endsWith("/")
-        ? `${cdn}${this.slug}${qs}`
-        : `${cdn}/${this.slug}${qs}`;
-    },
-  },
+  // computed: {
+  //   imageSlug: function() {
+  //     const cdn = this.$store.state.config["cdn-name"];
+  //     const qs = "?w=300&dpr=2.0";
+  //     return cdn.endsWith("/")
+  //       ? `${cdn}${this.slug}${qs}`
+  //       : `${cdn}/${this.slug}${qs}`;
+  //   },
+  // },
 };
 </script>
 

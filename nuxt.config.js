@@ -1,5 +1,7 @@
 import webpack from "webpack";
 
+const sketchesHost = "https://www.barandbench.com";
+
 export default {
   modules: ["@nuxt/http", "@nuxtjs/proxy"],
   target: "server", // 'server' (default) or 'static'
@@ -9,9 +11,9 @@ export default {
     { path: "~/components/molecules" },
   ],
   http: {
-    baseURL: "https://www.mumbaitak.in",
     proxy: true,
   },
+  proxy: [`${sketchesHost}/api/v1/**/*`], // proxies /api/v1 requests to sketches
   loading: {
     color: "#276749",
     height: "5px",
@@ -24,6 +26,7 @@ export default {
       }),
     ],
   },
+  plugins: ["~/plugins/client.js"],
   server: {
     port: process.env.PORT || 3000,
   },

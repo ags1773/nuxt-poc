@@ -1,22 +1,46 @@
 <template>
   <div class="four-col-grid-wrapper">
-    <div class="coll-name">{{ collection.name }}</div>
-    <div class="four-col-grid">
-      <StoryCard v-for="story in stories" :key="story.id" :story="story" />
+    <div>{{ collectionSlug }}</div>
+    <ul>
+      <li v-for="story in stories">{{ story.headline }}</li>
+    </ul>
+    <hr />
+    <!--
+    <p v-if="$fetchState.pending">Fetching collection...</p>
+    <p v-else-if="$fetchState.error">Error occured while fetching collection</p>
+    <div v-else class="coll-name">Fetch completed</div>
+    
+    <div v-else>
+      <div class="coll-name">{{ collection.name }}</div>
+      <div class="four-col-grid">
+        <StoryCard v-for="story in stories" :key="story.id" :story="story" />
+      </div>
     </div>
+    -->
   </div>
 </template>
 
 <script>
 export default {
-  props: ["collection"],
-  computed: {
-    stories: function() {
-      return this.collection.items
-        .filter((item) => item.type === "story")
-        .slice(0, 8)
-        .map((item) => item.story);
-    },
+  props: ["collectionSlug"],
+  data() {
+    return {
+      stories: {},
+    };
+  },
+  async fetch() {
+    const opts = {
+      qs: {
+        "item-type": "story",
+        "story-fields":
+          "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
+      },
+    };
+    const collectionData = await this.$client.getCollectionBySlug(
+      this.collectionSlug,
+      opts
+    );
+    this.stories = collectionData.items.slice(0, 8).map((item) => item.story);
   },
 };
 </script>
