@@ -8,6 +8,7 @@
       <div class="four-col-grid">
         <StoryCard v-for="story in stories" :key="story.id" :story="story" />
       </div>
+      <LoadMoreBtn @loadMore="loadMoreStories" :name="loadmoreText" />
     </div>
   </div>
 </template>
@@ -17,14 +18,39 @@ export default {
   props: ["collectionSlug"],
   data() {
     return {
-      stories: {},
+      stories: [],
       collectionName: "",
+      storiesLoadCount: 0,
+      loadmoreText: "Load More",
     };
+  },
+  methods: {
+    async loadMoreStories() {
+      // DRY this bit
+      this.loadmoreText = "Loading...";
+      const opts = {
+        qs: {
+          "item-type": "story",
+          limit: 4,
+          offset: this.storiesLoadCount,
+          "story-fields":
+            "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
+        },
+      };
+      const collectionData = await this.$client.getCollectionBySlug(
+        this.collectionSlug,
+        opts
+      );
+      this.storiesLoadCount += 4;
+      const newStories = collectionData.items.map((item) => item.story);
+      this.stories = this.stories.concat(newStories);
+    },
   },
   async fetch() {
     const opts = {
       qs: {
         "item-type": "story",
+        limit: 8,
         "story-fields":
           "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
       },
@@ -34,7 +60,8 @@ export default {
       opts
     );
     this.collectionName = collectionData.name;
-    this.stories = collectionData.items.slice(0, 8).map((item) => item.story);
+    this.storiesLoadCount += 8;
+    this.stories = collectionData.items.map((item) => item.story);
   },
 };
 </script>

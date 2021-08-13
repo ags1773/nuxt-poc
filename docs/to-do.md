@@ -15,3 +15,6 @@ Tasks:
 - [ ] deploy on vercel
 - [ ] add bundle analyzer
 - [ ] make sketchesHost dynamic
+- [ ] use css variables for spacing, padding, margin etc
+- [ ] Don't show load more button if there are no more stories
+- [ ] (?) show a loader while loading more stories
