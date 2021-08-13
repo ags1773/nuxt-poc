@@ -1,22 +1,14 @@
 <template>
   <div class="four-col-grid-wrapper">
-    <div>{{ collectionSlug }}</div>
-    <ul>
-      <li v-for="story in stories">{{ story.headline }}</li>
-    </ul>
-    <hr />
-    <!--
-    <p v-if="$fetchState.pending">Fetching collection...</p>
-    <p v-else-if="$fetchState.error">Error occured while fetching collection</p>
-    <div v-else class="coll-name">Fetch completed</div>
-    
+    <p v-if="$fetchState.error">
+      Error occured while fetching collection {{ collectionSlug }}
+    </p>
     <div v-else>
-      <div class="coll-name">{{ collection.name }}</div>
+      <div class="coll-name">{{ collectionName }}</div>
       <div class="four-col-grid">
         <StoryCard v-for="story in stories" :key="story.id" :story="story" />
       </div>
     </div>
-    -->
   </div>
 </template>
 
@@ -26,6 +18,7 @@ export default {
   data() {
     return {
       stories: {},
+      collectionName: "",
     };
   },
   async fetch() {
@@ -40,6 +33,7 @@ export default {
       this.collectionSlug,
       opts
     );
+    this.collectionName = collectionData.name;
     this.stories = collectionData.items.slice(0, 8).map((item) => item.story);
   },
 };
