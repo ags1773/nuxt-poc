@@ -8,7 +8,7 @@
       <div class="four-col-grid">
         <StoryCard v-for="story in stories" :key="story.id" :story="story" />
       </div>
-      <LoadMoreBtn @loadMore="loadMoreStories" :name="loadmoreText" />
+      <LoadMoreBtn @loadMore="loadMoreStories" />
     </div>
   </div>
 </template>
@@ -21,13 +21,11 @@ export default {
       stories: [],
       collectionName: "",
       storiesLoadCount: 0,
-      loadmoreText: "Load More",
     };
   },
   methods: {
     async loadMoreStories() {
       // DRY this bit
-      this.loadmoreText = "Loading...";
       const opts = {
         qs: {
           "item-type": "story",
