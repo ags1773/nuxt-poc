@@ -1,11 +1,20 @@
+<!-- Haven't checked if lazy loading is working. It should lazy load rows whose index >= 2 -->
 <template>
   <div>
-    <div>Home Page</div>
-    <FourColGrid
-      v-for="collection in collectionItems"
-      :key="collection.id"
-      :collectionSlug="collection.slug"
-    />
+    <template v-for="(collection, index) in collectionItems">
+      <template v-if="index < 2">
+        <FourColGrid
+          :key="collection.id"
+          :collectionSlug="collection.slug"
+        />
+      </template>
+      <template v-else>
+        <lazy-FourColGrid
+          :key="collection.id"
+          :collectionSlug="collection.slug"
+        />
+      </template>
+    </template>
   </div>
 </template>
 

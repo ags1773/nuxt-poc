@@ -9,3 +9,4 @@
 ### External docs quick links
 
 - [NUXT Context](https://nuxtjs.org/docs/2.x/concepts/context-helpers)
+- [API Client](https://medium.com/swlh/service-classes-using-plugins-in-nuxt-js-32c0f387ecb9)
