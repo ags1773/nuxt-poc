@@ -19,7 +19,7 @@
 <script>
 export default {
   async asyncData({ store, $http, $client }) {
-    // await store.dispatch("FETCH_CONFIG");
+    await store.dispatch("FETCH_CONFIG");
     const collectionData = await $client.getCollectionBySlug("home", {
       qs: {
         "item-type": "collection",

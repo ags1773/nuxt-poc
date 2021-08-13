@@ -2,7 +2,7 @@ Tasks:
 
 `22-July-2021`
 
-- [x] SSR 1st two rows, load remaining rows client side on scroll
+- [x] SSR 1st two rows, load remaining rows client side
 - [ ] critical CSS
 - [ ] load more
 - [ ] load a font (take it from config, no hardcoding)
@@ -14,3 +14,4 @@ Tasks:
 - [ ] remove lodash get
 - [ ] deploy on vercel
 - [ ] add bundle analyzer
+- [ ] make sketchesHost dynamic
