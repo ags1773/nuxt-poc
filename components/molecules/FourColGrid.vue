@@ -1,7 +1,10 @@
 <template>
   <div class="four-col-grid-wrapper">
-    <div>this is four-col-grid</div>
     <div>{{ collectionSlug }}</div>
+    <ul>
+      <li v-for="story in stories">{{ story.headline }}</li>
+    </ul>
+    <hr />
     <!--
     <p v-if="$fetchState.pending">Fetching collection...</p>
     <p v-else-if="$fetchState.error">Error occured while fetching collection</p>
@@ -18,30 +21,27 @@
 </template>
 
 <script>
-// import { getCollectionBySlug } from "~/api-helpers";
 export default {
   props: ["collectionSlug"],
-  // data() {
-  //   return {
-  //     collection: {},
-  //   };
-  // },
-  // computed: {
-  //   stories: function () {
-  //     return collection.items
-  //       .filter((item) => item.type === "story")
-  //       .slice(0, 8)
-  //       .map((item) => item.story);
-  //   },
-  // },
-  // async fetch() {
-  //   // const qs = {
-  //   //   // "item-type": "collection",
-  //   //   "story-fields":
-  //   //     "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
-  //   // };
-  //   this.collection = await this.$http.$get("/api/v1/collections/top-stories");
-  // },
+  data() {
+    return {
+      stories: {},
+    };
+  },
+  async fetch() {
+    const opts = {
+      qs: {
+        "item-type": "story",
+        "story-fields":
+          "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
+      },
+    };
+    const collectionData = await this.$client.getCollectionBySlug(
+      this.collectionSlug,
+      opts
+    );
+    this.stories = collectionData.items.slice(0, 8).map((item) => item.story);
+  },
 };
 </script>
 

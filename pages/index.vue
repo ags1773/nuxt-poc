@@ -1,18 +1,16 @@
-<!-- Haven't checked if lazy loading is working. It should lazy load rows whose index >= 2 -->
 <template>
   <div>
     <template v-for="(collection, index) in collectionItems">
       <template v-if="index < 2">
-        <FourColGrid
-          :key="collection.id"
-          :collectionSlug="collection.slug"
-        />
+        <FourColGrid :key="collection.id" :collectionSlug="collection.slug" />
       </template>
       <template v-else>
-        <lazy-FourColGrid
-          :key="collection.id"
-          :collectionSlug="collection.slug"
-        />
+        <client-only placeholder="Loading...">
+          <lazy-FourColGrid
+            :key="collection.id"
+            :collectionSlug="collection.slug"
+          />
+        </client-only>
       </template>
     </template>
   </div>
@@ -29,13 +27,6 @@ export default {
     });
     const collectionItems = collectionData.items;
     return { collectionItems };
-
-    // const homeCollectionPromises = homePageCollections.items
-    //   .filter((collItems) => collItems.type === "collection")
-    //   .map((collItems) => collItems.slug)
-    //   .map((collSlug) => $http.$get(`/api/v1/collections/${collSlug}`));
-    // const homeCollectionData = await Promise.all(homeCollectionPromises);
-    // return { homeCollectionData };
   },
 };
 </script>
