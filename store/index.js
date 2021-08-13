@@ -5,11 +5,17 @@ export const state = () => ({
 export const mutations = {
   setConfig(state, config) {
     if (!state.config) state.config = config;
-  }
+  },
 };
 
 export const actions = {
-  fetchConfig (context, config) {
-    context.commit("setConfig", config)
-  }
-}
+  async FETCH_CONFIG({ commit }) {
+    // const config = await this.$http.$get("/api");
+    const config = "dummy config"
+    commit("setConfig", config);
+  },
+  // async nuxtServerInit({ dispatch }, { req }) {
+  //   console.log("**** req >> ", req);
+  //   await dispatch("FETCH_CONFIG");
+  // },
+};

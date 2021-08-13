@@ -1,5 +1,7 @@
 import webpack from "webpack";
 
+// const sketchesHost = "https://www.barandbench.com";
+
 export default {
   modules: ["@nuxt/http", "@nuxtjs/proxy"],
   target: "server", // 'server' (default) or 'static'
@@ -8,10 +10,16 @@ export default {
     { path: "~/components/atoms" },
     { path: "~/components/molecules" },
   ],
-  http: {
-    baseURL: "https://www.mumbaitak.in",
-    proxy: true,
-  },
+  // http: {
+  //   // prefix: sketchesHost,
+  //   // proxy: true,
+  //   debug: true,
+  // },
+  // proxy: {
+  //   "/api": {
+  //     target: "http://localhost:3002",
+  //   },
+  // },
   loading: {
     color: "#276749",
     height: "5px",
@@ -24,6 +32,7 @@ export default {
       }),
     ],
   },
+  plugins: ["~/plugins/http"],
   server: {
     port: process.env.PORT || 3000,
   },

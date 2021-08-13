@@ -1,24 +1,48 @@
 <template>
   <div class="four-col-grid-wrapper">
-    <div class="coll-name">{{ collection.name }}</div>
-    <div class="four-col-grid">
-      <StoryCard v-for="story in stories" :key="story.id" :story="story" />
+    <div>this is four-col-grid</div>
+    
+    <!--
+    <p v-if="$fetchState.pending">Fetching collection...</p>
+    <p v-else-if="$fetchState.error">Error occured while fetching collection</p>
+    <div v-else class="coll-name">Fetch completed</div>
+    
+    <div v-else>
+      <div class="coll-name">{{ collection.name }}</div>
+      <div class="four-col-grid">
+        <StoryCard v-for="story in stories" :key="story.id" :story="story" />
+      </div>
     </div>
+    -->
   </div>
 </template>
 
 <script>
-export default {
-  props: ["collection"],
-  computed: {
-    stories: function() {
-      return this.collection.items
-        .filter((item) => item.type === "story")
-        .slice(0, 8)
-        .map((item) => item.story);
-    },
-  },
-};
+// import { getCollectionBySlug } from "~/api-helpers";
+// export default {
+//   props: ["collectionSlug"],
+//   data() {
+//     return {
+//       collection: {},
+//     };
+//   },
+//   computed: {
+//     stories: function () {
+//       return collection.items
+//         .filter((item) => item.type === "story")
+//         .slice(0, 8)
+//         .map((item) => item.story);
+//     },
+//   },
+//   async fetch() {
+//     // const qs = {
+//     //   // "item-type": "collection",
+//     //   "story-fields":
+//     //     "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
+//     // };
+//     this.collection = await this.$http.$get("/api/v1/collections/top-stories");
+//   },
+// };
 </script>
 
 <style scoped lang="scss">
