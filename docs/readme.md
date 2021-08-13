@@ -4,4 +4,8 @@
 
 ### Links
 
-- [Tasks](./to-do.md) 
+- [Tasks](./to-do.md)
+
+### External docs quick links
+
+- [NUXT Context](https://nuxtjs.org/docs/2.x/concepts/context-helpers)
