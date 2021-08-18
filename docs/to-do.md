@@ -1,9 +1,6 @@
 Tasks:
 
-`22-July-2021`
-
 - [x] SSR 1st two rows, load remaining rows client side
-- [ ] critical CSS
 - [x] load more
 - [ ] load a font (take it from config, no hardcoding)
 - [ ] remove `w` qs param in gumlet, add `data-src` so that it calculates width by itself

@@ -26,7 +26,7 @@ export default {
       }),
     ],
   },
-  plugins: ["~/plugins/client.js"],
+  plugins: ["~/plugins/client.js", "~/plugins/http"],
   server: {
     port: process.env.PORT || 3000,
   },

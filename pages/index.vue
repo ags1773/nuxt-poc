@@ -18,15 +18,16 @@
 
 <script>
 export default {
-  async asyncData({ store, $http, $client }) {
-    await store.dispatch("FETCH_CONFIG");
+  async asyncData({ store, $client, query }) {
+    const { publisherId } = query;
+    if (!publisherId) throw new Error("Please pass publisherId as query param");
+    await store.dispatch("FETCH_CONFIG", { publisherId });
     const collectionData = await $client.getCollectionBySlug("home", {
       qs: {
         "item-type": "collection",
       },
     });
-    const collectionItems = collectionData.items;
-    return { collectionItems };
+    return { collectionItems: collectionData.items };
   },
 };
 </script>
