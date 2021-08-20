@@ -32,7 +32,7 @@ export default {
           limit: 4,
           offset: this.storiesLoadCount,
           "story-fields":
-            "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
+            "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,published-at,alternative,authors,author-name,author-id,read-time",
         },
       };
       const collectionData = await this.$client.getCollectionBySlug(
@@ -50,7 +50,7 @@ export default {
         "item-type": "story",
         limit: 8,
         "story-fields":
-          "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,last-published-at,alternative,authors,author-name,author-id",
+          "headline,subheadline,slug,url,hero-image-s3-key,hero-image-caption,hero-image-metadata,hero-image-attribution,published-at,alternative,authors,author-name,author-id,read-time",
       },
     };
     const collectionData = await this.$client.getCollectionBySlug(

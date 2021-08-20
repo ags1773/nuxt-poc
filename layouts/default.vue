@@ -8,8 +8,17 @@
 
 <style>
 :root {
+  /* Colors */
   --primary-color: #993266;
   --white: #fff;
+  /* Shades Of Gray */
+  --c-mono1: rgba(0, 0, 0, 1);
+  --c-mono2: rgba(0, 0, 0, 0.9);
+  --c-mono3: rgba(0, 0, 0, 0.7);
+  --c-mono4: rgba(0, 0, 0, 0.6);
+  --c-mono5: rgba(0, 0, 0, 0.3);
+  --c-mono6: rgba(0, 0, 0, 0.2);
+  --c-mono7: rgba(0, 0, 0, 0.1);
 
   /* Spacing */
   --spacing-xxs: 4px;
