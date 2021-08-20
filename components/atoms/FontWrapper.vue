@@ -16,7 +16,7 @@ export default {
         },
         {
           hid: "gstatic",
-          rel: "stylesheet",
+          rel: "preconnect",
           href: "https://fonts.gstatic.com",
           crossorigin: true,
         },
