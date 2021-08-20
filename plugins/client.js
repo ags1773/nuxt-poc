@@ -2,6 +2,17 @@ class Client {
   constructor(httpClient) {
     this.httpClient = httpClient;
   }
+  getConfig() {
+    return getResource(this.httpClient, "/api/v1/config");
+  }
+  getPbConfig(publisherId) {
+    if (!publisherId)
+      throw new Error("publisherId unknown, can't fetch pagebuilder config");
+    return getResource(
+      this.httpClient,
+      `https://pagebuilder.quintype.com/api/v1/accounts/${publisherId}/config`
+    );
+  }
   getCollectionBySlug(slug, opts = {}) {
     return getResource(this.httpClient, `/api/v1/collections/${slug}`, opts);
   }
@@ -24,7 +35,6 @@ function isEmpty(obj) {
   obj && obj.constructor === Object && Object.keys(obj).length === 0;
 }
 
-export default function (context, inject) {
-  const httpClient = context.$http;
-  inject("client", new Client(httpClient));
+export default function ({ $http }, inject) {
+  inject("client", new Client($http));
 }

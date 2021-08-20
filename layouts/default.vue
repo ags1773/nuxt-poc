@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <FontWrapper>
     <Header />
     <Nuxt />
     <LazyFooter />
-  </div>
+  </FontWrapper>
 </template>
 
 <style>
 :root {
   --primary-color: rgb(196, 33, 60);
   --white: #fff;
-  
+
   /* Spacing */
   --spacing-xxs: 4px;
   --spacing-xs: 8px;
@@ -25,7 +25,8 @@
   --lh-4: 1.4;
   --lh-5: 1.5;
 }
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }

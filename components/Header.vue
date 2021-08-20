@@ -1,12 +1,10 @@
 <template>
   <header class="header">
-    <!--
     <div class="publisher-logo">
       <NuxtLink to="/">
         <img class="logo-image" :src="logoSrc" alt="publisher logo" />
       </NuxtLink>
     </div>
-    -->
     <div class="social-links">
       <div class="wrapper">
         <a href="https://www.youtube.com/c/MumbaiTak/videos">🔪</a>
@@ -18,16 +16,16 @@
 </template>
 
 <script>
-// export default {
-//   computed: {
-//     logoSrc: function() {
-//       return _get(this.$store.state.config, [
-//         "theme-attributes",
-//         "primary_logo",
-//       ]);
-//     },
-//   },
-// };
+export default {
+  computed: {
+    logoSrc: function() {
+      return _get(this.$store.state.config, [
+        "theme-attributes",
+        "primary_logo",
+      ]);
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
