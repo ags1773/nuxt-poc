@@ -8,7 +8,7 @@
 
 <style>
 :root {
-  --primary-color: rgb(196, 33, 60);
+  --primary-color: #993266;
   --white: #fff;
 
   /* Spacing */
@@ -24,6 +24,20 @@
   --lh-3: 1.3;
   --lh-4: 1.4;
   --lh-5: 1.5;
+  /* Font Scale */
+  --fs-xxs: 14px;
+  --fs-xs: 16px;
+  --fs-s: 18px;
+  --fs-m: 20px;
+  --fs-l: 24px;
+  --fs-xl: 26px;
+  --fs-xxl: 30px;
+  --fs-big: 32px;
+  --fs-huge: 40px;
+  --fs-jumbo: 54px;
+  /* Font Weight */
+  --fw-normal: 400;
+  --fw-bold: 600;
 }
 html,
 body {

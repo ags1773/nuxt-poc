@@ -23,7 +23,6 @@ export default {
 .card-image-wrapper {
   position: relative;
   padding: 56.25% 0 0;
-  margin: 0;
 
   img {
     position: absolute;

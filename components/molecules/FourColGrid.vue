@@ -76,9 +76,10 @@ export default {
 }
 .coll-name {
   display: inline-block;
-  border-bottom: 4px solid var(--primary-color);
-  font-size: 24px;
-  margin: 0 0 24px;
-  font-weight: 700;
+  border-left: 5px solid var(--primary-color);
+  font-size: var(--fs-big);
+  margin: 0 0 var(--spacing-m);
+  font-weight: var(--fw-bold);
+  padding: 0 var(--spacing-s);
 }
 </style>

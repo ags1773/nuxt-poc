@@ -23,7 +23,7 @@ export default {
         {
           hid: "font",
           rel: "stylesheet",
-          href: `https://fonts.googleapis.com/css2?family=${this.getFontFamily}&display=swap`,
+          href: `https://fonts.googleapis.com/css2?family=${this.getFontFamily}:wght@400;600&display=swap`,
         },
       ],
     };
